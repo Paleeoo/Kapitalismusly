@@ -65,7 +65,7 @@ namespace Kapitalismusly
             else
             {
                 if (!richtung)
-                {  // move nach unten
+                {  // move nach links
 
                     int x = 0;
                     int y = _place.Height - 56;

@@ -11,7 +11,7 @@ namespace Kapitalismusly
     internal class Street : Field
     {
         public readonly Bitmap Card;
-        public readonly int Price;
+        public readonly int Price;  //get und set fehle b.z. berechner
         public Player Owner;
         protected bool _richtung; 
 
@@ -19,6 +19,7 @@ namespace Kapitalismusly
         {
             _name = name;
             _place = panel;
+            _richtung = richtung;
         }
 
 
