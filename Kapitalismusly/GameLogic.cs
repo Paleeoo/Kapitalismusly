@@ -21,7 +21,8 @@ namespace Kapitalismusly
         }
 
         public static void Begin()
-        {
+        {  
+                        // test
             int Playercout = 2;
 
 
@@ -30,7 +31,7 @@ namespace Kapitalismusly
             p1.BackColor = Color.Purple;
             Player pl1 = new Player("Player 1", p1);
 
-            GameField[1].StepOver(pl1);
+            GameField[0].StepOver(pl1);
 
             
 

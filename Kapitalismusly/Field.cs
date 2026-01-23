@@ -38,7 +38,7 @@ namespace Kapitalismusly
         {
             if (_place.Width > _place.Height)
             {
-                if (!richtung)
+                if (!richtung)  //Felder rechts und links
                 {  // move nach unten
 
                     int x = _place.Width - 56;
@@ -62,7 +62,7 @@ namespace Kapitalismusly
                     }
                 }
             }
-            else
+            else//Felder unten und oben
             {
                 if (!richtung)
                 {  // move nach links
@@ -76,7 +76,7 @@ namespace Kapitalismusly
                         x -= 30;
                     }
                 }
-                else
+                else // move nach rechts
                 {
                     int x = 0;
                     int y = 56;
