@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Ereignisfeld.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="Jail.cs" />
+    <Compile Include="Start.cs" />
     <Compile Include="UI.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -19,10 +19,8 @@ namespace Kapitalismusly
 
         private void UI_Load(object sender, EventArgs e)
         {
-            GameLogic.GameField.Add(new Street("street1", panel1, false));
 
-
-            /*Player[] players = new Player[2];
+            /*
 
             PictureBox p1 = new PictureBox();
             p1.Size = new System.Drawing.Size(30, 60);
@@ -44,15 +42,15 @@ namespace Kapitalismusly
             MessageBox.Show(".");
             this.Controls.Add(players[0].picturebox);*/
 
-            //StreetCreate();
+            StreetTest();
 
             
         }
 
-        private void StreetCreate()
+        private void StreetTest()
         {
-            GameLogic.GameField.Add (new Street("street1", panel1, false));
-
+            GameLogic.GameField.Add (new Street("street1", panel2, true));
+            
         }
     }
 }

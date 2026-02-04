@@ -138,9 +138,9 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.DimGray;
-            this.panel9.Location = new System.Drawing.Point(1254, 670);
+            this.panel9.Location = new System.Drawing.Point(1252, 670);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(90, 69);
+            this.panel9.Size = new System.Drawing.Size(92, 69);
             this.panel9.TabIndex = 8;
             // 
             // panel10

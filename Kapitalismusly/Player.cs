@@ -14,11 +14,11 @@ namespace Kapitalismusly
         public readonly Bitmap Figur;
         private List<Street> _streets = new List<Street>();
         public PictureBox picturebox;
-        private int money;
+        private int _money;
 
         public int Money
         {
-            get { return money; }
+            get { return _money; }
             set { return; }
         }
 
@@ -32,6 +32,24 @@ namespace Kapitalismusly
         {
             Name = name;
             picturebox = p;
+        }
+
+        public void MoneyTransfer(int i)
+        {
+            
+        }
+
+        public void RemoveMoney(int i)
+        {
+            _money -= i;
+
+            if (_money < 0)///
+        }
+
+
+        private void Pleiteabwenden()
+        {
+
         }
     }
 }

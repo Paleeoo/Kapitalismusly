@@ -12,14 +12,31 @@ namespace Kapitalismusly
     {
         public readonly Bitmap Card;
         public readonly int Price;  //get und set fehle b.z. berechner
-        public Player Owner;
-        protected bool _richtung; 
+        public Player Owner; 
 
         public Street(string name, Panel panel, bool richtung)
         {
             _name = name;
             _place = panel;
-            _richtung = richtung;
+            _direction = richtung;
+        }
+
+        public void StepOn()
+        {
+            if (Owner == null)
+            {
+
+            }
+        }
+
+        protected void Buy(Player player)
+        {
+            player.Money
+        }
+
+        protected void Auction()
+        {
+
         }
 
 

@@ -11,18 +11,20 @@ namespace Kapitalismusly
     {
         public static List<Field> GameField = new List<Field>();
         public static List<Player> Playerlist = new List<Player>();
+        static Form UI = new UI();
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI());
-            Begin();
+            /*Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);*/
+            
+            UI.Show();
+            Test();
+            
         }
 
-        public static void Begin()
+        public static void Test()
         {  
-                        // test
             int Playercout = 2;
 
 
@@ -31,9 +33,11 @@ namespace Kapitalismusly
             p1.BackColor = Color.Purple;
             Player pl1 = new Player("Player 1", p1);
 
-            GameField[0].StepOver(pl1);
+            GameField[0].StepOver(pl1,true);
+            GameField[0].StepOn(pl1);
 
-            
+
+
 
 
         }
