@@ -15,6 +15,7 @@ namespace Kapitalismusly
         private List<Street> _streets = new List<Street>();
         public PictureBox picturebox;
         private int _money;
+        public Field OnField;
 
         public int Money
         {
@@ -43,13 +44,30 @@ namespace Kapitalismusly
         {
             _money -= i;
 
-            if (_money < 0)///
+            if (_money < 0) Pleiteabwenden();
         }
 
 
         private void Pleiteabwenden()
         {
+            if (_streets.Count == 0) GameOver();
 
+            int i = 0;
+            foreach (var item in _streets)
+            {
+                i += item.Wert;
+            }
+
+            if (_money + (i/2) <= 0) GameOver();
+
+            // starte auswahl zu verkauf
+
+        }
+
+        private void GameOver()
+        {
+            OnField.LeaveField(this);
+            GameLogic.Playerlist.Remove(this);
         }
     }
 }

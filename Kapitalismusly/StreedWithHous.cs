@@ -7,17 +7,31 @@ using System.Windows.Forms;
 
 namespace Kapitalismusly
 {
-    internal class StreedWithHous
+    internal class StreedWithHous : Street
     {
-        private Panel _houseplace = new Panel();
+        private Panel _houseplace = new Panel(); 
 
-        public void StepOn()
+        public StreedWithHous(string name, int preis, Panel place, Panel housplace, bool richtung) : base(name, preis,place, richtung)
         {
-            
+            //Fixme
+        }
+
+
+        public new void StepOn(Player player)
+        {
+            if (Owner == null)
+            {
+                Buy(player);
+            }
+        }
+
+        public void BuyHous()
+        {
+
         }
 
 
     }
 
-    
+
 }
