@@ -12,15 +12,25 @@ namespace Kapitalismusly
     {
         public readonly Bitmap Card;
         public readonly int Price;  
-        public int Wert;
-        public Player Owner; 
+        protected int Wert;
+        protected Player _owner;
+        protected List<Street> streetfamaly;
 
-        public Street(string name,int preis, Panel panel, bool richtung)
+        public Player Owner
+        {
+            get { return _owner; }
+            set { return; }
+        }
+
+        public Street(string name,int preis, Panel panel, bool richtung, List<Street> list)
         {
             _name = name;
             Price = preis;
+            Wert = preis / 2;
             _place = panel;
-            _direction = richtung;
+            streetfamaly = list;
+            
+            
         }
 
         public Street(string name, Panel panel, bool richtung) // einfach zum test
@@ -30,30 +40,36 @@ namespace Kapitalismusly
             _direction = richtung;
         }
 
-        public void StepOn(Player player)
+        
+
+        protected void Kaufabfrage(Player player)
         {
-            if (Owner == null)
+            if (player.Money >= Price)
             {
-                if (player.Money >= Price)
-                {
-                    //abfrage obkaufen
-                }
-                else
-                {
-                    MessageBox.Show("Du Geringverdiener kannst dir die straße nicht leisten... \n Sie wird versteigert!");
-                    //versteigerung der straße
-                }
+                //abfrage obkaufen
+            }
+            else
+            {
+                MessageBox.Show("Du Geringverdiener kannst dir die straße nicht leisten... \n Sie wird versteigert!");
+                //versteigerung der straße
             }
         }
 
         protected void Buy(Player player)
         {
-            player.RemoveMoney(Price);
+            player.MoneyTransfer(-Price);
+            _owner = player;
+            player.AddStreed(this);
         }
 
         protected void Auction()
         {
 
+        }
+
+        public void BackToBank()
+        {
+            _owner = null;
         }
 
 

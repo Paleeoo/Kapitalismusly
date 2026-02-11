@@ -35,33 +35,72 @@ namespace Kapitalismusly
             picturebox = p;
         }
 
+        public void MoneyTransfer(Player player, int i)
+        {
+            if (i <= Money)
+            {
+                _money -= i;
+                player.MoneyTransfer(i);
+            }
+            else   
+            {
+                if (i > Money + Eigentumswerte())
+                {
+                    SellAllStreets();
+                    player.MoneyTransfer(Money);
+                    _money = 0;
+                    GameOver();
+                }
+                else
+                {
+                    //verkauf um differenz zu decken
+                }
+            }
+
+        }
+
+        public void AddStreed(Street street) { _streets.Add(street); }
+ 
         public void MoneyTransfer(int i)
         {
-            
+            _money += i;
+            if (Money < 0) Pleiteabwenden();
         }
 
-        public void RemoveMoney(int i)
-        {
-            _money -= i;
-
-            if (_money < 0) Pleiteabwenden();
-        }
 
 
         private void Pleiteabwenden()
         {
-            if (_streets.Count == 0) GameOver();
+            if (Money + Eigentumswerte() < 0)
+            {
+                SellAllStreets();
+                GameOver();
+            }
+            else
+            {
+                //Verkaufhinzufügen
+            }
 
+
+        }
+
+        private int Eigentumswerte()
+        {
             int i = 0;
             foreach (var item in _streets)
             {
                 i += item.Wert;
             }
+            return i / 2;
+        }
 
-            if (_money + (i/2) <= 0) GameOver();
-
-            // starte auswahl zu verkauf
-
+        public void SellAllStreets()
+        {
+            foreach (var item in _streets)
+            {
+                _money += item.Wert / 2;
+                item.BackToBank(); // hinzufügen
+            }
         }
 
         private void GameOver()

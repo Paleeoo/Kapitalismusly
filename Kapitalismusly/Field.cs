@@ -21,16 +21,97 @@ namespace Kapitalismusly
             set { return; }
         }
 
-
-        public void StepOver(Player player, bool richtung)
+        protected void MoveOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
 
-            if (richtung) Move(player);
-           
+            if (_place.Width > _place.Height)  //Fields left an right
+            {
+
+                if (_direction)
+                {  // move nach unten
+
+                    int y = _place.Width - 40;
+                    int x = 0;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        player.picturebox.Location = new Point(y, x);
+                        MessageBox.Show("fd");
+                        x += 30;
+                    }
+                }
+                else
+                {
+                    int y = 10;
+                    int x = _place.Height;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        player.picturebox.Location = new Point(y, x);
+                        MessageBox.Show("fd");
+                        x -= 30;
+                    }
+                }
+            }
+            else//Felder unten und oben
+            {
+                if (_direction)
+                {  // move nach links
+
+                    int y = _place.Width;
+                    int x = _place.Height - 40;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        player.picturebox.Location = new Point(y, x);
+                        MessageBox.Show("fd");
+                        y -= 30;
+                    }
+                }
+                else // move nach rechts
+                {
+                    int y = 0;
+                    int x = 10;
+                    for (int i = 0; i < 2; i++)
+                    {
+                        player.picturebox.Location = new Point(y, x);
+                        MessageBox.Show("fd");
+                        x += 30;
+                    }
+                }
+            }
+            _place.Controls.Remove(player.picturebox);
         }
 
-        protected void Positioning(Player player)  //fixme
+        public void GoBack(Player player)
+        {
+            _place.Controls.Add(player.picturebox);
+
+            if (_place.Width > _place.Height)  //Fields left an right
+            {
+                int y = 10;
+                int x = 0;
+                for (int i = 0; i < 2; i++)
+                {
+                    player.picturebox.Location = new Point(y, x);
+                    MessageBox.Show("fd");
+                    x += 30;
+                }
+            }
+            else//Fields below
+            {
+                int y = 0;
+                int x = _place.Height - 40;
+                for (int i = 0; i < 2; i++)
+                {
+                    player.picturebox.Location = new Point(y, x);
+                    MessageBox.Show("fd");
+                    y += 30;
+                }
+
+            }
+            _place.Controls.Remove(player.picturebox);
+        }
+
+        protected void Positioning(Player player)  
         {
             _playersonfield.Add(player);
             _place.Controls.Add(player.picturebox);
@@ -93,68 +174,14 @@ namespace Kapitalismusly
             MessageBox.Show(""); //entfernen wenn fertig
         }
 
-        protected void Move( Player player)
-        {
-            if (_place.Width > _place.Height)  //Fields left an right
-            {               
-                if (_direction)  
-                {  // move nach unten
-
-                    int y = _place.Width - 40;
-                    int x = 0;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
-                        x += 30;
-                    }
-                }
-                else
-                {
-                    int y = 10;
-                    int x = _place.Height;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
-                        x -= 30;
-                    }
-                }
-            }
-            else//Felder unten und oben
-            {
-                if (_direction)
-                {  // move nach links
-
-                    int y = _place.Width;
-                    int x = _place.Height - 40;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
-                        y -= 30;
-                    }
-                }
-                else // move nach rechts
-                {
-                    int y = 0;
-                    int x = 10;
-                    for (int i = 0; i < 2; i++)
-                    {
-                        player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
-                        x += 30;
-                    }
-                }
-            }
-        }
+       
         public void LeaveField(Player player)
         {
             //abfrage ob plyer in der liste ist
 
             _playersonfield.Remove(player);
 
-            if (_playersonfield.Count > 0) StepOn(_playersonfield[0]);
+            if (_playersonfield.Count > 0) Positioning(_playersonfield[0]);
             
 
         }
