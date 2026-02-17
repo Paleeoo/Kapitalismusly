@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Kapitalismusly
 {
-    internal class StreedWithHous : Street
+    internal class StreetWithHous : Street
     {
         private Panel _houseplace = new Panel();
 
@@ -26,7 +26,7 @@ namespace Kapitalismusly
             set { return; }
         }
 
-        public StreedWithHous(string name, int preis, List<Street> list, int housprice, int grundmiete, int miete1haus, int miete2haus, int miete3haus, int miete4haus, int mietehotell, Panel place, Panel housplace, bool richtung) : base(name, preis, place, richtung, list)
+        public StreetWithHous(string name, int preis, List<Street> list, int housprice, int grundmiete, int miete1haus, int miete2haus, int miete3haus, int miete4haus, int mietehotell, Panel place, Panel housplace, bool richtung) : base(name, preis, place, richtung, list)
         {
             _housecount = 0;
             HousPrice = housprice;
@@ -42,6 +42,7 @@ namespace Kapitalismusly
 
         public void StepOn(Player player)
         {
+            Positioning(player);
             if (Owner == null) Kaufabfrage(player);
 
             else

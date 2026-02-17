@@ -12,7 +12,7 @@ namespace Kapitalismusly
     {
         public readonly Bitmap Card;
         public readonly int Price;  
-        protected int Wert;
+        protected int wert;
         protected Player _owner;
         protected List<Street> streetfamaly;
 
@@ -22,11 +22,17 @@ namespace Kapitalismusly
             set { return; }
         }
 
+        public int Wert
+        {
+            get { return wert; }
+            set { return; }
+        }
+
         public Street(string name,int preis, Panel panel, bool richtung, List<Street> list)
         {
             _name = name;
             Price = preis;
-            Wert = preis / 2;
+            wert = preis / 2;
             _place = panel;
             streetfamaly = list;
             

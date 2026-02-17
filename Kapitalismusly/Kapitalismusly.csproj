@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicServices.cs" />
     <Compile Include="Ereignisfeld.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="Jail.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="GameLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreedWithHous.cs" />
+    <Compile Include="StreetWithHous.cs" />
     <Compile Include="Street.cs" />
     <EmbeddedResource Include="UI.resx">
       <DependentUpon>UI.cs</DependentUpon>

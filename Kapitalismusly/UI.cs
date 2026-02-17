@@ -52,5 +52,20 @@ namespace Kapitalismusly
             GameLogic.GameField.Add (new Street("street1", panel2, true));
             
         }
+
+        public void Interface()
+        {
+            //Label Money = GameLogic.PlayeronZug.Money;  einfügen
+
+            Button Würefel = new Button();
+            this.Controls.Add(Würefel);
+
+
+
+
+
+        }
+
+        
     }
 }

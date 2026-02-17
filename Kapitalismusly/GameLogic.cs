@@ -9,6 +9,7 @@ namespace Kapitalismusly
 {
     internal static class GameLogic
     {
+        public static Player PlayeronZug;
         public static List<Field> GameField = new List<Field>();
         public static List<Player> Playerlist = new List<Player>();
         static Form UI = new UI();
@@ -33,12 +34,17 @@ namespace Kapitalismusly
             p1.BackColor = Color.Purple;
             Player pl1 = new Player("Player 1", p1);
 
-            GameField[0].StepOver(pl1,true);
-            GameField[0].StepOn(pl1);
+            //GameField[0].StepOver(pl1,true);
+            //GameField[0].StepOn(pl1);
 
 
 
 
+
+        }
+
+        private static void PlayerSwitch()
+        {
 
         }
     }

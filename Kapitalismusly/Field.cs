@@ -113,6 +113,7 @@ namespace Kapitalismusly
 
         protected void Positioning(Player player)  
         {
+            player.OnField = this;
             _playersonfield.Add(player);
             _place.Controls.Add(player.picturebox);
             bool OnePlayerOnField = true;
@@ -181,7 +182,7 @@ namespace Kapitalismusly
 
             _playersonfield.Remove(player);
 
-            if (_playersonfield.Count > 0) Positioning(_playersonfield[0]);
+            //if (_playersonfield.Count > 0) Positioning(_playersonfield[0]);
             
 
         }

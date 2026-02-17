@@ -12,7 +12,7 @@ namespace Kapitalismusly
     {
         public readonly string Name;
         public readonly Bitmap Figur;
-        private List<Street> _streets = new List<Street>();
+        public List<Street> _streets = new List<Street>();
         public PictureBox picturebox;
         private int _money;
         public Field OnField;
