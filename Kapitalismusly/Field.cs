@@ -21,7 +21,12 @@ namespace Kapitalismusly
             set { return; }
         }
 
-        protected void MoveOver(Player player)
+        public void StepOver(Player player)
+        {
+            GoOver(player);
+        }
+
+        public void GoOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
 
@@ -29,20 +34,20 @@ namespace Kapitalismusly
             {
 
                 if (_direction)
-                {  // move nach unten
+                {  // move right fields
 
-                    int y = _place.Width - 40;
+                    int y = _place.Width - 91 +15;
                     int x = 0;
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
+                        TestMessegBox();
                         x += 30;
                     }
                 }
-                else
+                else //left fields
                 {
-                    int y = 10;
+                    int y = 91 - 30 -15;
                     int x = _place.Height;
                     for (int i = 0; i < 2; i++)
                     {
@@ -55,25 +60,25 @@ namespace Kapitalismusly
             else//Felder unten und oben
             {
                 if (_direction)
-                {  // move nach links
+                {  // field below
 
                     int y = _place.Width;
-                    int x = _place.Height - 40;
+                    int x = _place.Height - 91 + 15 ;
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
+                        TestMessegBox();
                         y -= 30;
                     }
                 }
-                else // move nach rechts
+                else // Field top
                 {
                     int y = 0;
-                    int x = 10;
+                    int x = 19 - 30 -15;
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
+                        TestMessegBox();
                         x += 30;
                     }
                 }
@@ -85,7 +90,7 @@ namespace Kapitalismusly
         {
             _place.Controls.Add(player.picturebox);
 
-            if (_place.Width > _place.Height)  //Fields left an right
+            if (_place.Width > _place.Height)  //Fields left
             {
                 int y = 10;
                 int x = 0;
@@ -126,25 +131,24 @@ namespace Kapitalismusly
                 {
                     if (OnePlayerOnField)
                     {
-                        player.picturebox.Location = new Point(10, 20);
-                        MessageBox.Show("");
+                        player.picturebox.Location = new Point(_place.Width - 30 -10, 20);
+                        TestMessegBox();
                     }
 
                     else
                     {
-                        _playersonfield[0].picturebox.Location = new Point(10, 2);
-                        _playersonfield[1].picturebox.Location = new Point(10, _place.Height - 30 -2);
+                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 40, 4);
+                        _playersonfield[1].picturebox.Location = new Point(_place.Width - 40, 30 + 8);
                     }
 
                 }
                 else
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point(_place.Width - 30 - 10, 20);
-
+                    if (OnePlayerOnField) player.picturebox.Location = new Point( 10, 20);
                     else
                     {
-                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 - 10, 2);
-                        _playersonfield[1].picturebox.Location = new Point(_place.Width - 30 - 10, _place.Height - 30 - 2);
+                        _playersonfield[0].picturebox.Location = new Point( 10, 30 + 8);
+                        _playersonfield[1].picturebox.Location = new Point( 10, 4);
                     }
                 }
             }
@@ -152,27 +156,23 @@ namespace Kapitalismusly
             {
                 if (_direction) //felder unten
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, 10);
+                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, _place.Height - 30 -10);
                     else
                     {
-                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 - 2, 10);
-                        _playersonfield[1].picturebox.Location = new Point(2, 10);
+                        _playersonfield[0].picturebox.Location = new Point(30 + 8, _place.Height - 30 - 10);
+                        _playersonfield[1].picturebox.Location = new Point(4, _place.Height - 30 - 10);
                     }
-
                 }
                 else // oben
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, _place.Height - 10);
+                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, 10);
                     else
                     {
-                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 - 2, _place.Height-30-10);
-                        _playersonfield[1].picturebox.Location = new Point(2, _place.Height-30-10);
+                        _playersonfield[0].picturebox.Location = new Point(4, 10);
+                        _playersonfield[1].picturebox.Location = new Point(30 + 8, 10);
                     }
                 }
-
-
             }
-            MessageBox.Show(""); //entfernen wenn fertig
         }
 
        
@@ -185,6 +185,12 @@ namespace Kapitalismusly
             //if (_playersonfield.Count > 0) Positioning(_playersonfield[0]);
             
 
+        }
+
+
+        public void TestMessegBox()
+        {
+            MessageBox.Show("");
         }
     }
 }

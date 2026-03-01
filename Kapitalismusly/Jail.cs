@@ -37,6 +37,14 @@ namespace Kapitalismusly
             
         }
 
+        public void LeaveJail(Player player)
+        {
+            foreach (var item in _injail)
+            {
+                if (item.Item1 == player) _injail.Remove(item);
+            }
+        }
+
         public void Move(Player player)
         {
             // mach selber
@@ -65,22 +73,29 @@ namespace Kapitalismusly
 
         public bool Knastausbruch(Player player , (int,int) i)
         {
+
             int temp = 0;
             foreach (var item in _injail)
             {
                 if (item.Item1 == player) temp = _injail.IndexOf(item); break;
             }
 
-            if (_injail[temp].Item2 == 3) return false;
+            
 
-            if (i.Item1 != i.Item2) _injail[temp] = (player, _injail[temp].Item2 + 1);
+            if (i.Item1 != i.Item2)
+            {
+                _injail[temp] = (player, _injail[temp].Item2 + 1);
+                if (_injail[temp].Item2 == 3)
+                {
+                    LeaveJail(player);
+                }
+                return false;
+            }
             else
             {
-
+                MessageBox.Show("Du bist frei! Würfle nochmal");
+                return true;
             }
-
-
-            return true;
         }
     }
 }

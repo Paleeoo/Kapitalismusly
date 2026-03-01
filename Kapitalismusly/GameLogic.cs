@@ -13,6 +13,9 @@ namespace Kapitalismusly
         public static List<Field> GameField = new List<Field>();
         public static List<Player> Playerlist = new List<Player>();
         static Form UI = new UI();
+        public static Jail Guantanamo;  //einfach nur das knastfeld
+        private static int _paschcount = 1;
+
         [STAThread]
         static void Main()
         {
@@ -43,9 +46,52 @@ namespace Kapitalismusly
 
         }
 
-        private static void PlayerSwitch()
+        public static void Round(int Würfel1, int Würfel2)
+        {
+          
+            if (PlayeronZug.OnField.GetType() != typeof(Jail) && !Guantanamo.JailChek(PlayeronZug))
+            {
+                if (_paschcount == 3) GoToJail();
+            }
+            else
+            {
+                if (Guantanamo.Knastausbruch(PlayeronZug, (Würfel1, Würfel2)))
+                {
+                    // Ui aktivate würfel
+                    return;
+                }
+            }
+        
+
+        }
+
+        private static void RoundEnd()
         {
 
+        }
+
+        public static void GoToJail()
+        {
+            int posi = GameField.IndexOf(PlayeronZug.OnField);
+            PlayeronZug.LeaveField();
+            if (posi > 29 || posi < 10)
+            {
+                PlayeronZug.OnField.LeaveField(PlayeronZug);
+                for (int i = posi + 1;  i!= 10;i++)
+                {
+                    if (i == GameField.Count) i = 0;
+                    GameField[i].GoOver(PlayeronZug);
+                }
+            }
+            else
+            {
+                for (int i = posi - 1; i > 10 ; i--)
+                {
+                    GameField[i].GoBack(PlayeronZug);
+                }
+            }
+
+            Guantanamo.GoInJail(PlayeronZug);
         }
     }
 }

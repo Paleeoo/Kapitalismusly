@@ -108,5 +108,10 @@ namespace Kapitalismusly
             OnField.LeaveField(this);
             GameLogic.Playerlist.Remove(this);
         }
+
+        public void LeaveField()
+        {
+            OnField.LeaveField(this);
+        }
     }
 }
