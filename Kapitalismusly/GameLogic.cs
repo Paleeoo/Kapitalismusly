@@ -14,7 +14,7 @@ namespace Kapitalismusly
         public static List<Player> Playerlist = new List<Player>();
         static Form UI = new UI();
         public static Jail Guantanamo;  //einfach nur das knastfeld
-        private static int _paschcount = 1;
+        private static int _paschcount = 0;
 
         [STAThread]
         static void Main()
@@ -48,26 +48,52 @@ namespace Kapitalismusly
 
         public static void Round(int Würfel1, int Würfel2)
         {
-          
+
             if (PlayeronZug.OnField.GetType() != typeof(Jail) && !Guantanamo.JailChek(PlayeronZug))
             {
-                if (_paschcount == 3) GoToJail();
+                if (Würfel1 == Würfel2)
+                {
+                    _paschcount++;
+                    MessageBox.Show("Du hast zu oft ein Pasch gewürfelt.\nDu schummelst...\nGeh ins Gefängnis!");
+                    if (_paschcount == 3) GoToJail();
+                }
+
+                int temp = GameField.IndexOf(PlayeronZug.OnField) + 1;
+                PlayeronZug.LeaveField();
+                for (int i = 1; i < Würfel1 + Würfel2; i++)
+                {
+                    if (temp == GameField.Count) temp = 0;
+                    GameField[temp].StepOver(PlayeronZug);
+                    temp++;
+                }
+                GameField[temp].StepOn(PlayeronZug);
+
+                if (Würfel1 == Würfel2)
+                {
+                    MessageBox.Show("Du kannst nochmal Würfeln.");
+                    // Ui aktivate würfel
+                    return;
+                }
             }
             else
             {
                 if (Guantanamo.Knastausbruch(PlayeronZug, (Würfel1, Würfel2)))
                 {
+                    MessageBox.Show("Du kannst nochmal Würfeln.");
                     // Ui aktivate würfel
                     return;
                 }
+                else RoundEnd(); return;
             }
-        
 
+            //UI weiterbutten
         }
 
         private static void RoundEnd()
         {
-
+            if (Playerlist.IndexOf(PlayeronZug) == Playerlist.Count - 1) PlayeronZug = Playerlist[0];
+            else PlayeronZug = Playerlist[Playerlist.IndexOf(PlayeronZug) + 1];
+            // ui neue runde
         }
 
         public static void GoToJail()
@@ -92,6 +118,7 @@ namespace Kapitalismusly
             }
 
             Guantanamo.GoInJail(PlayeronZug);
+            RoundEnd();
         }
     }
 }

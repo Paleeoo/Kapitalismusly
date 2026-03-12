@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Kapitalismusly
 {
@@ -21,7 +22,7 @@ namespace Kapitalismusly
             get { return _owner; }
             set { return; }
         }
-
+ 
         public int Wert
         {
             get { return wert; }
@@ -52,7 +53,20 @@ namespace Kapitalismusly
         {
             if (player.Money >= Price)
             {
-                //abfrage obkaufen
+                int i = 0;
+                foreach (var item in streetfamaly)
+                {
+                    if (item.Owner == player) i++;
+                }
+                string count;
+                if (i == 0) count = "keine";
+                else count = i.ToString();
+
+                var result = MessageBox.Show("Willst du die Straße kaufen?\n Du besitzt " + count + " der Schwesterstraßen", "Straße kaufen?", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes) Buy(player);
+                else 
+
             }
             else
             {

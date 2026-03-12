@@ -22,7 +22,7 @@ namespace Kapitalismusly
             
         }
 
-        public void SteppOn(Player player)
+        public new void StepOn(Player player)
         {
             player.OnField = this;
             _playersonfield.Add(player);

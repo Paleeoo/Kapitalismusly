@@ -40,7 +40,7 @@ namespace Kapitalismusly
         }
 
 
-        public void StepOn(Player player)
+        public new void StepOn(Player player)
         {
             Positioning(player);
             if (Owner == null) Kaufabfrage(player);

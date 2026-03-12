@@ -69,6 +69,9 @@
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -399,12 +402,43 @@
             this.panel22.Size = new System.Drawing.Size(91, 72);
             this.panel22.TabIndex = 39;
             // 
+            // buttonNext
+            // 
+            this.buttonNext.BackColor = System.Drawing.Color.Red;
+            this.buttonNext.Location = new System.Drawing.Point(844, 668);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(127, 49);
+            this.buttonNext.TabIndex = 40;
+            this.buttonNext.Text = "Weiter";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(106, 874);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 49);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(337, 874);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kapitalismusly.Properties.Resources.wood_extra;
             this.ClientSize = new System.Drawing.Size(1834, 961);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.panel22);
             this.Controls.Add(this.panel40);
             this.Controls.Add(this.panel39);
@@ -496,6 +530,9 @@
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button button2;
     }
 }
 

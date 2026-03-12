@@ -66,6 +66,9 @@ namespace Kapitalismusly
 
         }
 
-        
+        internal static void StreedAuktion()
+        {
+
+        }
     }
 }
