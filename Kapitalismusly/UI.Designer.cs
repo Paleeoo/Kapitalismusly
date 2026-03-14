@@ -72,6 +72,7 @@
             this.buttonNext = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.buttonRoll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -411,6 +412,7 @@
             this.buttonNext.TabIndex = 40;
             this.buttonNext.Text = "Weiter";
             this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // button2
             // 
@@ -430,12 +432,25 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // buttonRoll
+            // 
+            this.buttonRoll.BackColor = System.Drawing.Color.Blue;
+            this.buttonRoll.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonRoll.Location = new System.Drawing.Point(844, 723);
+            this.buttonRoll.Name = "buttonRoll";
+            this.buttonRoll.Size = new System.Drawing.Size(127, 49);
+            this.buttonRoll.TabIndex = 42;
+            this.buttonRoll.Text = "Würfeln";
+            this.buttonRoll.UseVisualStyleBackColor = false;
+            this.buttonRoll.Click += new System.EventHandler(this.buttonRoll_Click);
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kapitalismusly.Properties.Resources.wood_extra;
             this.ClientSize = new System.Drawing.Size(1834, 961);
+            this.Controls.Add(this.buttonRoll);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonNext);
@@ -533,6 +548,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRoll;
     }
 }
 
