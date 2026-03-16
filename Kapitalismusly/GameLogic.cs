@@ -12,20 +12,33 @@ namespace Kapitalismusly
         public static Player PlayeronZug;
         public static List<Field> GameField = new List<Field>();
         public static List<Player> Playerlist = new List<Player>();
-        //public static Form UI = new UI();
+        public static UI Ui;
         public static Jail Guantanamo;  //einfach nur das knastfeld
         private static int _paschcount = 0;
 
         [STAThread]
         static void Main()
         {
-            /*Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);*/
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Ui = new UI();
 
-            Application.Run(new UI());
-            
+
+
+            //Application.Run(Ui);
+            Ui.Show();
+            Testt();
+
+            MessageBox.Show("");
         }
         
+        public static void Testt()
+        {
+            Ui.ActivateButtonRoll();
+           
+        }
+
+
         public static void Test()
         {  
             int Playercout = 2;
@@ -38,11 +51,6 @@ namespace Kapitalismusly
 
             //GameField[0].StepOver(pl1,true);
             //GameField[0].StepOn(pl1);
-
-
-
-
-
         }
 
         public static void Round(int Würfel1, int Würfel2)
@@ -84,7 +92,7 @@ namespace Kapitalismusly
                 }
                 else RoundEnd(); return;
             }
-            
+            Ui.ActivateButtonNext();
             
         }
 

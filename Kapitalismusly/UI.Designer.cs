@@ -442,6 +442,7 @@
             this.buttonRoll.TabIndex = 42;
             this.buttonRoll.Text = "Würfeln";
             this.buttonRoll.UseVisualStyleBackColor = false;
+            this.buttonRoll.Visible = false;
             this.buttonRoll.Click += new System.EventHandler(this.buttonRoll_Click);
             // 
             // UI

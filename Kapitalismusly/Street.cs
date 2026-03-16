@@ -56,21 +56,24 @@ namespace Kapitalismusly
                 int i = 0;
                 foreach (var item in streetfamaly)
                 {
-                    if (item.Owner == player) i++;
+                    if (item.Owner == player) 
+                        i++;
                 }
                 string count;
-                if (i == 0) count = "keine";
-                else count = i.ToString();
+                if (i == 0)
+                    count = "keine";
+                else 
+                    count = i.ToString();
 
-                var result = MessageBox.Show("Willst du die Straße kaufen?\n Du besitzt " + count + " der Schwesterstraßen", "Straße kaufen?", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show("Willst du die Straße kaufen?\nDu besitzt " + count + " der Schwesterstraßen", "Straße kaufen?", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes) Buy(player);
-                else 
+                //fix
 
             }
             else
             {
-                MessageBox.Show("Du Geringverdiener kannst dir die straße nicht leisten... \n Sie wird versteigert!");
+                MessageBox.Show("Du Geringverdiener kannst dir die straße nicht leisten...\nSie wird versteigert!");
                 //versteigerung der straße
             }
         }

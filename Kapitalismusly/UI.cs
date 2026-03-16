@@ -67,11 +67,6 @@ namespace Kapitalismusly
 
         }
 
-        internal static void StreedAuktion()
-        {
-            Timer t = new Timer
-        }
-
         public void NewRound()
         {
 
@@ -128,7 +123,7 @@ namespace Kapitalismusly
             p2.Location = new Point(175, 50);
             Button b = new Button();
             b.Text = "OK";
-            b.Click += (senderb, args) => temp.Close();
+            b.Click += (sendere, args) => temp.Close();
             b.Location = new Point(150 - b.Width / 2, 170);
             temp.Controls.Add(label);
             temp.Controls.Add(p1);
@@ -141,6 +136,17 @@ namespace Kapitalismusly
 
         private Bitmap GibWürfelZahl(int i)
         {
+            switch (i)
+            {
+                case 1: return new Bitmap(Image.FromFile("würfel1.png"), 100, 100);
+                    
+
+
+                default:
+                    break;
+            }
+
+
             if (i == 1) return new Bitmap(Image.FromFile("würfel1.png"), 100, 100);
             if (i == 2) return new Bitmap(Image.FromFile("würfel2.png"), 100, 100);
             if (i == 3) return new Bitmap(Image.FromFile("würfel3.png"), 100, 100);
