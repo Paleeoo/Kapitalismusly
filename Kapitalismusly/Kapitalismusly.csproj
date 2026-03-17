@@ -50,6 +50,7 @@
     <Compile Include="Ereignisfeld.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="Jail.cs" />
+    <Compile Include="Policeman.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="TrainStation.cs" />
     <Compile Include="UI.cs">
@@ -82,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WürfelErgebnis.resx">
+      <DependentUpon>WürfelErgebnis.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -121,11 +121,16 @@ namespace Kapitalismusly
             _place.Controls.Remove(player.picturebox);
         }
 
-        protected void Positioning(Player player)  
+        protected void Positioning(Player player)
         {
             player.OnField = this;
             _playersonfield.Add(player);
             _place.Controls.Add(player.picturebox);
+            Positioning();
+        }
+
+        protected void Positioning()  
+        {
             bool OnePlayerOnField = true;
             if (_playersonfield.Count >1) OnePlayerOnField = false;
 
@@ -135,11 +140,7 @@ namespace Kapitalismusly
                 if (_direction) //Fields right site
                 {
                     if (OnePlayerOnField)
-                    {
-                        player.picturebox.Location = new Point(_place.Width - 30 -10, 20);
-                        TestMessegBox();
-                    }
-
+                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 -10, 20);
                     else
                     {
                         _playersonfield[0].picturebox.Location = new Point(_place.Width - 40, 4);
@@ -149,7 +150,8 @@ namespace Kapitalismusly
                 }
                 else
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point( 10, 20);
+                    if (OnePlayerOnField)
+                        _playersonfield[0].picturebox.Location = new Point( 10, 20);
                     else
                     {
                         _playersonfield[0].picturebox.Location = new Point( 10, 30 + 8);
@@ -161,7 +163,8 @@ namespace Kapitalismusly
             {
                 if (_direction) //felder unten
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, _place.Height - 30 -10);
+                    if (OnePlayerOnField) 
+                        _playersonfield[0].picturebox.Location = new Point(20, _place.Height - 30 -10);
                     else
                     {
                         _playersonfield[0].picturebox.Location = new Point(30 + 8, _place.Height - 30 - 10);
@@ -170,7 +173,8 @@ namespace Kapitalismusly
                 }
                 else // oben
                 {
-                    if (OnePlayerOnField) player.picturebox.Location = new Point(20, 10);
+                    if (OnePlayerOnField)
+                        _playersonfield[0].picturebox.Location = new Point(20, 10);
                     else
                     {
                         _playersonfield[0].picturebox.Location = new Point(4, 10);
@@ -183,11 +187,12 @@ namespace Kapitalismusly
        
         public void LeaveField(Player player)
         {
-            //abfrage ob plyer in der liste ist
 
             _playersonfield.Remove(player);
+            _place.Controls.Remove(player.picturebox);
 
-            //if (_playersonfield.Count > 0) Positioning(_playersonfield[0]);
+            if(_playersonfield.Count > 0) 
+                Positioning();
             
 
         }

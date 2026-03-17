@@ -105,33 +105,9 @@ namespace Kapitalismusly
             int würfel2 = random.Next(1, 7);
             Bitmap w2 = GibWürfelZahl(würfel2);
 
-            Form temp = new Form();
-            temp.Size = new Size(300, 200);
-            temp.FormBorderStyle = FormBorderStyle.FixedSingle;
-            temp.ControlBox = false;
-            System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-            label.Text = "Dein würfelergebnis:";
-            label.Font = new Font("Arial", 15);
-            label.Location = new Point(50, 10);
-            PictureBox p1 = new PictureBox();
-            p1.Size = new Size(100, 100);
-            p1.Image = w1;
-            p1.Location = new Point(25, 50);
-            PictureBox p2 = new PictureBox();
-            p2.Size = new Size(100, 100);
-            p2.Image = w2;
-            p2.Location = new Point(175, 50);
-            Button b = new Button();
-            b.Text = "OK";
-            b.Click += (sendere, args) => temp.Close();
-            b.Location = new Point(150 - b.Width / 2, 170);
-            temp.Controls.Add(label);
-            temp.Controls.Add(p1);
-            temp.Controls.Add(p2);
-            temp.Controls.Add(b);
-            Application.Run(temp);
+            Application.Run(new WürfelErgebnis(w1, w2));
 
-            GameLogic.Round(random.Next(1, 7), random.Next(1, 7));
+            GameLogic.Round(würfel1, würfel2);
         }
 
         private Bitmap GibWürfelZahl(int i)
@@ -139,22 +115,19 @@ namespace Kapitalismusly
             switch (i)
             {
                 case 1: return new Bitmap(Image.FromFile("würfel1.png"), 100, 100);
-                    
 
+                case 2: return new Bitmap(Image.FromFile("würfel2.png"), 100, 100);
 
-                default:
-                    break;
+                case 3: return new Bitmap(Image.FromFile("würfel3.png"), 100, 100);
+
+                case 4: return new Bitmap(Image.FromFile("würfel4.png"), 100, 100);
+
+                case 5: return new Bitmap(Image.FromFile("würfel5.png"), 100, 100);
+
+                case 6: return new Bitmap(Image.FromFile("würfel6.png"), 100, 100);
+
+                default: MessageBox.Show("Ungültigen Wert Übergeben"); return null;
             }
-
-
-            if (i == 1) return new Bitmap(Image.FromFile("würfel1.png"), 100, 100);
-            if (i == 2) return new Bitmap(Image.FromFile("würfel2.png"), 100, 100);
-            if (i == 3) return new Bitmap(Image.FromFile("würfel3.png"), 100, 100);
-            if (i == 4) return new Bitmap(Image.FromFile("würfel4.png"), 100, 100);
-            if (i == 5) return new Bitmap(Image.FromFile("würfel5.png"), 100, 100);
-            return new Bitmap(Image.FromFile("würfel6.png"), 100, 100);
-        }
-
-        
+        }  
     }
 }
