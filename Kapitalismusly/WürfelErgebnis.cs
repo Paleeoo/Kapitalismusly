@@ -12,12 +12,14 @@ namespace Kapitalismusly
 {
     public partial class WürfelErgebnis : Form
     {
-        public WürfelErgebnis(Bitmap w1, Bitmap w2)
+        private int _ergebnis;
+
+        private WürfelErgebnis(out int i)
         {
             InitializeComponent();
 
             this.Size = new Size(300, 200);
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ControlBox = false;
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             label.Text = "Dein würfelergebnis:";
@@ -26,11 +28,11 @@ namespace Kapitalismusly
             label.Location = new Point(50, 10);
             PictureBox p1 = new PictureBox();
             p1.Size = new Size(100, 100);
-            p1.Image = w1;
+            //p1.Image = w1;
             p1.Location = new Point(25, 50);
             PictureBox p2 = new PictureBox();
             p2.Size = new Size(100, 100);
-            p2.Image = w2;
+            //p2.Image = w2;
             p2.Location = new Point(175, 50);
             Button b = new Button();
             b.Text = "OK";
@@ -40,6 +42,8 @@ namespace Kapitalismusly
             this.Controls.Add(p1);
             this.Controls.Add(p2);
             this.Controls.Add(b);
+
+            i = 4; 
         }
             
 
@@ -47,6 +51,16 @@ namespace Kapitalismusly
         {
             
             
+        }
+
+        public static int ADDD()
+        {
+            
+
+            WürfelErgebnis w = new WürfelErgebnis(out int f);
+            w.ShowDialog();
+            return w._ergebnis;
+
         }
     }
 }

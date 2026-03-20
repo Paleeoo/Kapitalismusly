@@ -21,11 +21,14 @@ namespace Kapitalismusly
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+           
+
             Ui = new UI();
 
 
 
-            //Application.Run(Ui);
+            Application.Run(Ui);
             Ui.Show();
             Testt();
 

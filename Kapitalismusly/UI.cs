@@ -62,7 +62,7 @@ namespace Kapitalismusly
             this.Controls.Add(Würefel);
 
 
-
+            MessageBox.Show("");
 
 
         }
@@ -86,6 +86,9 @@ namespace Kapitalismusly
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
+            WürfelErgebnis.ADDD();
+            MessageBox.Show("");
+
             buttonNext.Visible = false;
             buttonNext.Enabled = false;
             button2.Visible = false;
@@ -105,7 +108,7 @@ namespace Kapitalismusly
             int würfel2 = random.Next(1, 7);
             Bitmap w2 = GibWürfelZahl(würfel2);
 
-            Application.Run(new WürfelErgebnis(w1, w2));
+            //Application.Run(new WürfelErgebnis(w1, w2));
 
             GameLogic.Round(würfel1, würfel2);
         }
