@@ -22,6 +22,11 @@ namespace Kapitalismusly
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            while (true)
+            {
+                Application.Run(new CreatePlayer());
+            }
+
            
 
             Ui = new UI();

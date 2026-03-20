@@ -19,7 +19,7 @@ namespace Kapitalismusly
             InitializeComponent();
 
             this.Size = new Size(300, 200);
-            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.ControlBox = false;
             System.Windows.Forms.Label label = new System.Windows.Forms.Label();
             label.Text = "Dein würfelergebnis:";

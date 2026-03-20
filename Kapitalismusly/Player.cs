@@ -23,11 +23,14 @@ namespace Kapitalismusly
             set { return; }
         }
 
-        public Player(string name, int money, PictureBox p, Bitmap fiegur)
+        public Player(string name, PictureBox p, Bitmap fiegur)
         {
-
-
+            Name = name;
+            picturebox = p;
+            _money = 2000;
         }
+
+        
 
         public Player(string name, PictureBox p)
         {
