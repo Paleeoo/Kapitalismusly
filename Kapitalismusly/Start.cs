@@ -17,7 +17,7 @@ namespace Kapitalismusly
             _place = panel;
         }
 
-        public void StepOn(Player player)  //FixMe
+        public void StepOn(Player player) 
         {
             player.MoneyTransfer(200);
             Positioning(player);

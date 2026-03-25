@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auction.Designer.cs">
+      <DependentUpon>Auction.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicServices.cs" />
     <Compile Include="CreatePlayer.cs">
       <SubType>Form</SubType>
@@ -55,6 +61,7 @@
     </Compile>
     <Compile Include="Ereignisfeld.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="FreeParking.cs" />
     <Compile Include="Jail.cs" />
     <Compile Include="Policeman.cs" />
     <Compile Include="Start.cs" />
@@ -76,6 +83,9 @@
     <Compile Include="WürfelErgebnis.Designer.cs">
       <DependentUpon>WürfelErgebnis.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Auction.resx">
+      <DependentUpon>Auction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreatePlayer.resx">
       <DependentUpon>CreatePlayer.cs</DependentUpon>
     </EmbeddedResource>

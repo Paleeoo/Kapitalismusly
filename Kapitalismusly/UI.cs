@@ -21,37 +21,35 @@ namespace Kapitalismusly
         private void UI_Load(object sender, EventArgs e)
         {
 
-            /*
-
-            PictureBox p1 = new PictureBox();
-            p1.Size = new System.Drawing.Size(30, 60);
-            p1.BackColor = Color.Purple;
-            p1.Location = new Point(10, 20);
-            this.Controls.Add(p1);
-            players[0] = new Player("Player 1", p1);
-
-
-            p1 = new PictureBox();
-            p1.Size = new System.Drawing.Size(30, 30);
-            p1.BackColor = Color.Green;
-            p1.Location = new Point(10, 60);
-            this.Controls.Add(p1);
-            players[1] = new Player("Player 1", p1);
-
-
-            panel1.Controls.Add(players[0].picturebox);
-            MessageBox.Show(".");
-            this.Controls.Add(players[0].picturebox);*/
-
-            StreetTest();
-
-            
+           
         }
 
-        private void StreetTest()
+        private void NewTrainStation(string name1, int price1, Panel panel1, string name2, int price2, Panel panel2, string name3, int price3, Panel panel3, string name4, int price4, Panel panel4)
         {
-            GameLogic.GameField.Add (new Street("street1", panel2, true));
-            
+            List<Street> temp = new List<Street>();
+
+            temp.Add(new TrainStation(name1, price1, panel1, true, temp));
+            temp.Add(new TrainStation(name2, price2, panel2, true, temp));
+            temp.Add(new TrainStation(name3, price3, panel3, true, temp));
+            temp.Add(new TrainStation(name4, price4, panel4, true, temp));
+
+        }
+
+        private void NewStreetWithHous(string Name1, int Price1, (int, int, int, int, int, int, int) all1, Panel StreetPanel1, Panel HousPanel1, string Name2, int Price2, (int, int, int, int, int, int, int) all2, Panel StreetPanel2, Panel HousPanel2, bool richtung)
+        {
+            List<Street> temp = new List<Street>();
+
+            temp.Add(new StreetWithHous(Name1, Price1, temp, all1.Item1, all1.Item2, all1.Item3, all1.Item4, all1.Item5, all1.Item6, all1.Item7, StreetPanel1, HousPanel1, richtung));
+            temp.Add(new StreetWithHous(Name2, Price2, temp, all2.Item1, all2.Item2, all2.Item3, all2.Item4, all2.Item5, all2.Item6, all2.Item7, StreetPanel2, HousPanel2, richtung));
+        }
+
+        private void NewStreetWithHous(string Name1, int Price1, (int,int,int,int,int,int,int) all1, Panel StreetPanel1, Panel HousPanel1, string Name2, int Price2, (int, int, int, int, int, int, int) all2, Panel StreetPanel2, Panel HousPanel2, string Name3, int Price3, (int, int, int, int, int, int, int) all3, Panel StreetPanel3, Panel HousPanel3, bool richtung)
+        {
+            List<Street> temp = new List<Street>();
+
+            temp.Add(new StreetWithHous(Name1, Price1, temp, all1.Item1, all1.Item2, all1.Item3, all1.Item4, all1.Item5, all1.Item6, all1.Item7, StreetPanel1, HousPanel1, richtung));
+            temp.Add(new StreetWithHous(Name2, Price2, temp, all2.Item1, all2.Item2, all2.Item3, all2.Item4, all2.Item5, all2.Item6, all2.Item7, StreetPanel2, HousPanel2, richtung));
+            temp.Add(new StreetWithHous(Name2, Price3, temp, all3.Item1, all3.Item2, all3.Item3, all3.Item4, all3.Item5, all3.Item6, all3.Item7, StreetPanel3, HousPanel3, richtung));
         }
 
         public void Interface()

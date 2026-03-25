@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,21 +17,24 @@ namespace Kapitalismusly
         public static Jail Guantanamo;  //einfach nur das knastfeld
         private static int _paschcount = 0;
 
+        private static bool _nomoreplayer = false;
+        public static bool NoMorePlayer
+        {
+            get { return _nomoreplayer; }
+            set
+            {
+                if (_nomoreplayer) return;
+                _nomoreplayer = value;
+            }
+        }
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            while (true)
-            {
-                Application.Run(new CreatePlayer());
-            }
-
-           
-
+            Application.SetCompatibleTextRenderingDefault(false); 
             Ui = new UI();
-
+            BeforStart();
 
 
             Application.Run(Ui);
@@ -38,6 +42,33 @@ namespace Kapitalismusly
             Testt();
 
             MessageBox.Show("");
+        }
+
+        private static void BeforStart()
+        {
+            CreatePlayer.AddPlayer();
+            MessageBox.Show("Spieler erstellt.\nNächster Spieler ist dran.");
+            CreatePlayer.AddPlayer();
+
+            NoMorePlayer = true;
+            return;
+
+            while (true) //Fals mal mehr als 2 spieler möglich sind 
+            {
+                DialogResult temp = MessageBox.Show("Ein witeren Spieler erstellen?", "", MessageBoxButtons.YesNo);
+                if (temp == DialogResult.No)
+                {
+                    NoMorePlayer = true;
+                    return;
+                }
+                CreatePlayer.AddPlayer();
+
+                if (Playerlist.Count == 4)
+                {
+                    NoMorePlayer = true;
+                    return;
+                }
+            }
         }
         
         public static void Testt()

@@ -20,7 +20,7 @@ namespace Kapitalismusly
         private Color playercolor;
         private List<MultiPictureBoxBox> Boxen = new List<MultiPictureBoxBox>();
 
-        public CreatePlayer()
+        private CreatePlayer()
         {
             InitializeComponent();
             CreateFigures();
@@ -112,6 +112,13 @@ namespace Kapitalismusly
 
             m.BorderStyle = BorderStyle.Fixed3D;
 
+        }
+
+        public static void AddPlayer()
+        {
+            if (GameLogic.NoMorePlayer)
+                return;
+            Application.Run(new CreatePlayer());
         }
     }
 

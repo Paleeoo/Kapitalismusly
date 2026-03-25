@@ -52,7 +52,7 @@ namespace Kapitalismusly
                 }
                 else //left fields
                 {
-                    int y = 91 - 30 -15;
+                    int y = 91 - 30 -15; 
                     int x = _place.Height;
                     for (int i = 0; i < 2; i++)
                     {
