@@ -14,7 +14,7 @@ namespace Kapitalismusly
     {
         private int _ergebnis;
 
-        private WürfelErgebnis(out int i)
+        private WürfelErgebnis()
         {
             InitializeComponent();
 
@@ -42,8 +42,6 @@ namespace Kapitalismusly
             this.Controls.Add(p1);
             this.Controls.Add(p2);
             this.Controls.Add(b);
-
-            i = 4; 
         }
             
 
@@ -57,7 +55,7 @@ namespace Kapitalismusly
         {
             
 
-            WürfelErgebnis w = new WürfelErgebnis(out int f);
+            WürfelErgebnis w = new WürfelErgebnis();
             w.ShowDialog();
             return w._ergebnis;
 

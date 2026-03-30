@@ -65,16 +65,17 @@ namespace Kapitalismusly
                 else 
                     count = i.ToString();
 
-                var result = MessageBox.Show("Willst du die Straße kaufen?\nDu besitzt " + count + " der Schwesterstraßen", "Straße kaufen?", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show("Willst du die Straße kaufen?\nDu besitzt " + count + " der Schwesterstraßen.", "Straße kaufen?", MessageBoxButtons.YesNo);
 
-                if (result == DialogResult.Yes) Buy(player);
-                //fix
-
+                if (result == DialogResult.Yes)
+                    Buy(player);
+                else
+                    SAuction();
             }
             else
             {
                 MessageBox.Show("Du Geringverdiener kannst dir die straße nicht leisten...\nSie wird versteigert!");
-                //versteigerung der straße
+                SAuction();
             }
         }
 
@@ -85,8 +86,11 @@ namespace Kapitalismusly
             player.AddStreed(this);
         }
 
-        protected void Auction()
+        protected void SAuction()
         {
+            Player temp;
+            int wert;
+            Auction.StartNewAuction(out temp, out wert, Name, "Die");
 
         }
 
@@ -94,16 +98,5 @@ namespace Kapitalismusly
         {
             _owner = null;
         }
-
-
-        public void S()
-        {
-            
-        }
-
-
-       
-
-
     }
 }

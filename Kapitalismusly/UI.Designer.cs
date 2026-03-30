@@ -73,6 +73,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonRoll = new System.Windows.Forms.Button();
+            this.panel41 = new System.Windows.Forms.Panel();
+            this.panel42 = new System.Windows.Forms.Panel();
+            this.panel43 = new System.Windows.Forms.Panel();
+            this.panel44 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
@@ -445,12 +449,44 @@
             this.buttonRoll.Visible = false;
             this.buttonRoll.Click += new System.EventHandler(this.buttonRoll_Click);
             // 
+            // panel41
+            // 
+            this.panel41.Location = new System.Drawing.Point(1148, 228);
+            this.panel41.Name = "panel41";
+            this.panel41.Size = new System.Drawing.Size(20, 67);
+            this.panel41.TabIndex = 43;
+            // 
+            // panel42
+            // 
+            this.panel42.Location = new System.Drawing.Point(1186, 684);
+            this.panel42.Name = "panel42";
+            this.panel42.Size = new System.Drawing.Size(20, 67);
+            this.panel42.TabIndex = 44;
+            // 
+            // panel43
+            // 
+            this.panel43.Location = new System.Drawing.Point(1158, 573);
+            this.panel43.Name = "panel43";
+            this.panel43.Size = new System.Drawing.Size(20, 67);
+            this.panel43.TabIndex = 44;
+            // 
+            // panel44
+            // 
+            this.panel44.Location = new System.Drawing.Point(1186, 331);
+            this.panel44.Name = "panel44";
+            this.panel44.Size = new System.Drawing.Size(20, 67);
+            this.panel44.TabIndex = 44;
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kapitalismusly.Properties.Resources.wood_extra;
             this.ClientSize = new System.Drawing.Size(1834, 961);
+            this.Controls.Add(this.panel43);
+            this.Controls.Add(this.panel44);
+            this.Controls.Add(this.panel42);
+            this.Controls.Add(this.panel41);
             this.Controls.Add(this.buttonRoll);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -550,6 +586,10 @@
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonRoll;
+        private System.Windows.Forms.Panel panel41;
+        private System.Windows.Forms.Panel panel42;
+        private System.Windows.Forms.Panel panel43;
+        private System.Windows.Forms.Panel panel44;
     }
 }
 
