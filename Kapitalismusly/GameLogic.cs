@@ -34,7 +34,7 @@ namespace Kapitalismusly
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false); 
             Ui = new UI();
-            BeforStart();
+            //BeforStart();
 
 
             Application.Run(Ui);

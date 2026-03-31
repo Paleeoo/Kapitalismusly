@@ -31,9 +31,11 @@ namespace Kapitalismusly
             GoOver(player);
         }
 
-        public void GoOver(Player player)
+        public async void GoOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
+            int time = 300;
+
 
             if (_place.Width > _place.Height)  //Fields left an right
             {
@@ -46,7 +48,7 @@ namespace Kapitalismusly
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        TestMessegBox();
+                        await Task.Delay(time);
                         x += 30;
                     }
                 }
@@ -57,7 +59,7 @@ namespace Kapitalismusly
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        MessageBox.Show("fd");
+                        await Task.Delay(time);
                         x -= 30;
                     }
                 }
@@ -72,7 +74,7 @@ namespace Kapitalismusly
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        TestMessegBox();
+                        await Task.Delay(time);
                         y -= 30;
                     }
                 }
@@ -83,7 +85,7 @@ namespace Kapitalismusly
                     for (int i = 0; i < 2; i++)
                     {
                         player.picturebox.Location = new Point(y, x);
-                        TestMessegBox();
+                        await Task.Delay(time);
                         x += 30;
                     }
                 }

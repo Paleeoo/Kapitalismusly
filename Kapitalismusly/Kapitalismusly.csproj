@@ -52,20 +52,21 @@
     <Compile Include="Auction.Designer.cs">
       <DependentUpon>Auction.cs</DependentUpon>
     </Compile>
-    <Compile Include="BasicServices.cs" />
+    <Compile Include="FieldTypes\BadField.cs" />
+    <Compile Include="FieldTypes\BasicServices.cs" />
     <Compile Include="CreatePlayer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreatePlayer.Designer.cs">
       <DependentUpon>CreatePlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ereignisfeld.cs" />
-    <Compile Include="Field.cs" />
-    <Compile Include="FreeParking.cs" />
-    <Compile Include="Jail.cs" />
-    <Compile Include="Policeman.cs" />
-    <Compile Include="Start.cs" />
-    <Compile Include="TrainStation.cs" />
+    <Compile Include="FieldTypes\Ereignisfeld.cs" />
+    <Compile Include="FieldTypes\Field.cs" />
+    <Compile Include="FieldTypes\FreeParking.cs" />
+    <Compile Include="FieldTypes\Jail.cs" />
+    <Compile Include="FieldTypes\Policeman.cs" />
+    <Compile Include="FieldTypes\Start.cs" />
+    <Compile Include="FieldTypes\TrainStation.cs" />
     <Compile Include="UI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,8 +76,8 @@
     <Compile Include="GameLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreetWithHous.cs" />
-    <Compile Include="Street.cs" />
+    <Compile Include="FieldTypes\StreetWithHous.cs" />
+    <Compile Include="FieldTypes\Street.cs" />
     <Compile Include="WürfelErgebnis.cs">
       <SubType>Form</SubType>
     </Compile>

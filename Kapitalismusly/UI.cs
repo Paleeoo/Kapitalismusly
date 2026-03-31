@@ -84,7 +84,7 @@ namespace Kapitalismusly
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            WürfelErgebnis.ADDD();
+            
             MessageBox.Show("");
 
             buttonNext.Visible = false;
@@ -106,7 +106,8 @@ namespace Kapitalismusly
             int würfel2 = random.Next(1, 7);
             Bitmap w2 = GibWürfelZahl(würfel2);
 
-            //Application.Run(new WürfelErgebnis(w1, w2));
+            WürfelErgebnis.NewErgebnis(w1, w2);
+            
 
             GameLogic.Round(würfel1, würfel2);
         }
@@ -129,6 +130,11 @@ namespace Kapitalismusly
 
                 default: MessageBox.Show("Ungültigen Wert Übergeben"); return null;
             }
-        }  
+        }
+
+        private void panel45_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
