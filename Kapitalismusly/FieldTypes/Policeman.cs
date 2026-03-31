@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Kapitalismusly
 {
@@ -22,20 +23,21 @@ namespace Kapitalismusly
             GameLogic.GoToJail();
         }
 
-        public new void GoOver(Player player)
+        public new async void GoOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
-            int timer = 300;
+            int time = 300;
             int y = 91 - 30 - 15;
             int x = _place.Height - 30;
 
             player.picturebox.Location = new Point(y, x);
-            Thread.Sleep(timer);
+            await Task.Delay(time);
             x = y;
             player.picturebox.Location = new Point(y, x);
-            Thread.Sleep(timer);
+            await Task.Delay(time);
             y = _place.Width - 30;
             player.picturebox.Location = new Point(y, x);
+            await Task.Delay(time);
         }
     }
 }

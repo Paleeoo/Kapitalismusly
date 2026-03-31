@@ -67,6 +67,13 @@
     <Compile Include="FieldTypes\Policeman.cs" />
     <Compile Include="FieldTypes\Start.cs" />
     <Compile Include="FieldTypes\TrainStation.cs" />
+    <Compile Include="Gemeinschaftsfeld.cs" />
+    <Compile Include="Spielerreinenfolge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spielerreinenfolge.Designer.cs">
+      <DependentUpon>Spielerreinenfolge.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePlayer.resx">
       <DependentUpon>CreatePlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spielerreinenfolge.resx">
+      <DependentUpon>Spielerreinenfolge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI.resx">
       <DependentUpon>UI.cs</DependentUpon>

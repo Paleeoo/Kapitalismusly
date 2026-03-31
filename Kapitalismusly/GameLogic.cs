@@ -10,12 +10,14 @@ namespace Kapitalismusly
 {
     internal static class GameLogic
     {
+        public static Player[] JailFreeCard = new Player[3];
         public static Player PlayeronZug;
         public static List<Field> GameField = new List<Field>();
         public static List<Player> Playerlist = new List<Player>();
         public static UI Ui;
         public static Jail Guantanamo;  //einfach nur das knastfeld
         private static int _paschcount = 0;
+        
 
         private static bool _nomoreplayer = false;
         public static bool NoMorePlayer

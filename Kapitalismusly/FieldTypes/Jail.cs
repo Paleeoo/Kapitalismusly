@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Kapitalismusly 
 {
@@ -61,6 +62,23 @@ namespace Kapitalismusly
         public bool Knastausbruch(Player player, (int, int) i)
         {
 
+            for (int j = 0; j < GameLogic.JailFreeCard.Length; j++)
+            {
+                if (GameLogic.JailFreeCard[j] == player)
+                {
+                    var result = MessageBox.Show("Du hast eine Gefängnisfreikarte.\nWillst du diese nutzen","", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Du kommst frei!");
+                        GameLogic.JailFreeCard[j] = null;
+                        return true;
+                    }
+                    break;
+
+                }
+            }
+
+
             int temp = 0;
             foreach (var item in _injail)
             {
@@ -93,20 +111,21 @@ namespace Kapitalismusly
             Positioning(player);
         }
 
-        public new void GoOver(Player player)
+        public new async void GoOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
-            int timer = 300;
+            int time = 300;
             int y = _place.Width - 91 + 15;
             int x = 0;
 
             player.picturebox.Location = new Point(y, x);
-            Thread.Sleep(timer);
+            await Task.Delay(time);
             x = _place.Height - 91 + 15; ;
             player.picturebox.Location = new Point(y, x);
-            Thread.Sleep(timer);
+            await Task.Delay(time);
             y = 0;
             player.picturebox.Location = new Point(y, x);
+            await Task.Delay(time);
 
         }
 

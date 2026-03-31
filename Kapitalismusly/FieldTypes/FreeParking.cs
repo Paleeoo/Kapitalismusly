@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Kapitalismusly
 {
@@ -21,29 +22,36 @@ namespace Kapitalismusly
             Positioning(player);
         }
 
-        public new void StepOver(Player player)      //Fixmeee timer
+        public new async void StepOver(Player player)      //Fixmeee timer
         {
             _place.Controls.Add(player.picturebox);
-
+            int time = 300;
             int y = 46;
             int x = _place.Height - 91 + 15;
 
             player.picturebox.Location = new Point(_place.Width, x);
-            player.picturebox.Location = new Point(y, x);                       //Fixmeee timer
+            await Task.Delay(time);
+            player.picturebox.Location = new Point(y, x);
+            await Task.Delay(time);
             player.picturebox.Location = new Point(y, 0);
+            await Task.Delay(time);
 
         }
 
-        public new void GoBack(Player player)       //Fixmeee timer
+        public new async void GoBack(Player player)       //Fixmeee timer
         {
             _place.Controls.Add(player.picturebox);
+            int time = 300;
 
             int y = 46;
             int x = _place.Height - 91 + 15;
 
             player.picturebox.Location = new Point(y, 0);
+            await Task.Delay(time);
             player.picturebox.Location = new Point(y, x);
+            await Task.Delay(time);
             player.picturebox.Location = new Point(_place.Width, x);
+            await Task.Delay(time);
         }
 
         protected new void Positioning(Player player)
