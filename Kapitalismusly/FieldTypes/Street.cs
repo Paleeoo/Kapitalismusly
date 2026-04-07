@@ -11,11 +11,12 @@ namespace Kapitalismusly
 {
     internal class Street : Field
     {
+        public int HousPrice;
         public readonly Bitmap Card;
         public readonly int Price;  
         protected int wert;
         protected Player _owner;
-        protected List<Street> streetfamaly;
+        public readonly List<Street> streetfamaly;
 
         public Player Owner
         {
@@ -29,6 +30,12 @@ namespace Kapitalismusly
             set { return; }
         }
 
+        public int Houscount
+        {
+            get { return 0; }
+            set { return; }
+        }
+
         public Street(string name,int preis, Panel panel, bool richtung, List<Street> list)
         {
             _name = name;
@@ -36,18 +43,20 @@ namespace Kapitalismusly
             wert = preis / 2;
             _place = panel;
             streetfamaly = list;
-            
-            
         }
 
-        public Street(string name, Panel panel, bool richtung) // einfach zum test
+        public bool StreetFammelyQuery()
         {
-            _name = name;
-            _place = panel;
-            _direction = richtung;
+            bool temp = true;
+            foreach (var item in streetfamaly)
+            {
+                if (item.Owner != Owner)
+                    temp = false;
+            }
+            return temp;
         }
 
-        
+
 
         protected void Kaufabfrage(Player player)
         {
@@ -68,7 +77,7 @@ namespace Kapitalismusly
                 var result = MessageBox.Show("Willst du die Straße kaufen?\nDu besitzt " + count + " der Schwesterstraßen.", "Straße kaufen?", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
-                    Buy(player);
+                    Buy(player,Price);
                 else
                     SAuction();
             }
@@ -79,9 +88,9 @@ namespace Kapitalismusly
             }
         }
 
-        protected void Buy(Player player)
+        protected void Buy(Player player, int i)
         {
-            player.MoneyTransfer(-Price);
+            player.MoneyTransfer(-i);
             _owner = player;
             player.AddStreed(this);
         }
@@ -90,13 +99,23 @@ namespace Kapitalismusly
         {
             Player temp;
             int wert;
-            Auction.StartNewAuction(out temp, out wert, Name, "Die");
+            Auction.StartNewAuction(out temp, out wert, Name);
+
+            if (temp == null)
+                return;
+
+            Buy(temp, wert);
 
         }
 
         public void BackToBank()
         {
             _owner = null;
+        }
+
+        public void BuyHous()
+        {
+            //macht nichts
         }
     }
 }

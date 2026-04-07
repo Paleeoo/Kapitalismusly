@@ -15,7 +15,37 @@ namespace Kapitalismusly
         public Start(Panel panel)
         {
             _place = panel;
+
+            int i = GameLogic.Playerlist.Count;
+
+            GameLogic.Playerlist[0].OnField = this;
+            _playersonfield.Add(GameLogic.Playerlist[0]);
+            _place.Controls.Add(GameLogic.Playerlist[0].picturebox);
+            GameLogic.Playerlist[0].picturebox.Location = new Point(18, 67);
+
+            GameLogic.Playerlist[1].OnField = this;
+            _playersonfield.Add(GameLogic.Playerlist[1]);
+            _place.Controls.Add(GameLogic.Playerlist[1].picturebox);
+            GameLogic.Playerlist[1].picturebox.Location = new Point(67, 67);
+
+            if (i > 2)
+            {
+                GameLogic.Playerlist[2].OnField = this;
+                _playersonfield.Add(GameLogic.Playerlist[2]);
+                _place.Controls.Add(GameLogic.Playerlist[2].picturebox);
+                GameLogic.Playerlist[2].picturebox.Location = new Point(18, 18);
+
+                if (i > 3)
+                {
+                    GameLogic.Playerlist[4].OnField = this;
+                    _playersonfield.Add(GameLogic.Playerlist[4]);
+                    _place.Controls.Add(GameLogic.Playerlist[4].picturebox);
+                    GameLogic.Playerlist[4].picturebox.Location = new Point(67, 18);
+                }
+            }
         }
+
+        
 
         public new void StepOn(Player player) 
         {
@@ -51,6 +81,11 @@ namespace Kapitalismusly
             player.OnField = this;
             _playersonfield.Add(player);
             _place.Controls.Add(player.picturebox);
+           
+        }
+
+        private new void Positioning()
+        {
             bool TwoPlayerOnField = false;
             if (_playersonfield.Count > 1) TwoPlayerOnField = true;
 
@@ -58,6 +93,16 @@ namespace Kapitalismusly
             if (TwoPlayerOnField) _playersonfield[1].picturebox.Location = new Point(10, _place.Height / 2 - 15);
         }
 
-        
+        public new void LeaveField(Player player)
+        {
+
+            _playersonfield.Remove(player);
+            _place.Controls.Remove(player.picturebox);
+
+            if (_playersonfield.Count > 0)
+                Positioning();
+        }
+
+
     }
 }

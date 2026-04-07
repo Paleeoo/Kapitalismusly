@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllStreets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllStreets.Designer.cs">
+      <DependentUpon>AllStreets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Auction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Auction.Designer.cs">
       <DependentUpon>Auction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Debug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debug.Designer.cs">
+      <DependentUpon>Debug.cs</DependentUpon>
     </Compile>
     <Compile Include="FieldTypes\BadField.cs" />
     <Compile Include="FieldTypes\BasicServices.cs" />
@@ -67,12 +79,18 @@
     <Compile Include="FieldTypes\Policeman.cs" />
     <Compile Include="FieldTypes\Start.cs" />
     <Compile Include="FieldTypes\TrainStation.cs" />
-    <Compile Include="Gemeinschaftsfeld.cs" />
+    <Compile Include="FieldTypes\Gemeinschaftsfeld.cs" />
     <Compile Include="Spielerreinenfolge.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Spielerreinenfolge.Designer.cs">
       <DependentUpon>Spielerreinenfolge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StraßenVerkauf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StraßenVerkauf.Designer.cs">
+      <DependentUpon>StraßenVerkauf.cs</DependentUpon>
     </Compile>
     <Compile Include="UI.cs">
       <SubType>Form</SubType>
@@ -91,14 +109,23 @@
     <Compile Include="WürfelErgebnis.Designer.cs">
       <DependentUpon>WürfelErgebnis.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AllStreets.resx">
+      <DependentUpon>AllStreets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Auction.resx">
       <DependentUpon>Auction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePlayer.resx">
       <DependentUpon>CreatePlayer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Debug.resx">
+      <DependentUpon>Debug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spielerreinenfolge.resx">
       <DependentUpon>Spielerreinenfolge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StraßenVerkauf.resx">
+      <DependentUpon>StraßenVerkauf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI.resx">
       <DependentUpon>UI.cs</DependentUpon>

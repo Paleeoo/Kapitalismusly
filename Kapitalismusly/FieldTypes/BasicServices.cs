@@ -11,7 +11,7 @@ namespace Kapitalismusly
     {
         public BasicServices (string name, int preis, Panel panel, bool richtung, List<Street> list) : base(name, preis, panel, richtung, list) {}
 
-        public void StepOn(Player player, int i)
+        public new void StepOn(Player player, int i)
         {
             Positioning(player);
             if (Owner == null) Kaufabfrage(player);
@@ -21,11 +21,12 @@ namespace Kapitalismusly
                 if (player == _owner) return;
                 else
                 {
-                    bool dummername = false;
+                    bool dummername = true;
 
                     foreach (var item in streetfamaly)
                     {
-                        if (item != this && item.Owner == _owner) dummername = true;
+                        if (item != this && item.Owner == _owner) 
+                            dummername = false;
                     }
 
                     if (dummername) i *= 10;

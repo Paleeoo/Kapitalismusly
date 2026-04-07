@@ -25,6 +25,10 @@ namespace Kapitalismusly
         {
             //unbeschrieben wiel in jerder klasse neu definiert
         }
+        public void StepOn(Player player, int i)
+        {
+            //unbeschrieben wiel in klasse neu definiert
+        }
 
         public void StepOver(Player player)
         {

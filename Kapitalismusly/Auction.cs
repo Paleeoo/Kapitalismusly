@@ -21,7 +21,7 @@ namespace Kapitalismusly
 
 
 
-        private Auction(string name, string atikel)
+        private Auction(string name)
         {
             Name = name;
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace Kapitalismusly
 
         private void Auction_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Heute wird " + _atikel + " " + _name + " versteigert!\nStartgebot ist 5€.\nErhöt wird ebenfals um 5€");
+            MessageBox.Show("Heute wird: "  + _name + "\nStartgebot ist 5€.\nErhöt wird ebenfals um 5€");
             timer1.Enabled = true;
         }
 
@@ -115,9 +115,9 @@ namespace Kapitalismusly
             this.Close();
         }
 
-        internal static void StartNewAuction(out Player player, out int wert, string name, string artikel)
+        internal static void StartNewAuction(out Player player, out int wert, string name)
         {
-            Auction auction = new Auction(name,artikel);
+            Auction auction = new Auction(name);
             auction.ShowDialog();
 
 

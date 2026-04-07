@@ -36,14 +36,11 @@ namespace Kapitalismusly
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false); 
             Ui = new UI();
-            //BeforStart();
+            BeforStart();
 
 
             Application.Run(Ui);
             Ui.Show();
-            Testt();
-
-            MessageBox.Show("");
         }
 
         private static void BeforStart()
@@ -52,6 +49,7 @@ namespace Kapitalismusly
             MessageBox.Show("Spieler erstellt.\nNächster Spieler ist dran.");
             CreatePlayer.AddPlayer();
 
+            Spielerreinenfolge.SortPlayer();
             NoMorePlayer = true;
             return;
 
@@ -59,39 +57,16 @@ namespace Kapitalismusly
             {
                 DialogResult temp = MessageBox.Show("Ein witeren Spieler erstellen?", "", MessageBoxButtons.YesNo);
                 if (temp == DialogResult.No)
-                {
-                    NoMorePlayer = true;
-                    return;
-                }
+                    break;
+
                 CreatePlayer.AddPlayer();
 
                 if (Playerlist.Count == 4)
-                {
-                    NoMorePlayer = true;
-                    return;
-                }
+                    break;
             }
-        }
-        
-        public static void Testt()
-        {
-            Ui.ActivateButtonRoll();
-           
-        }
 
-
-        public static void Test()
-        {  
-            int Playercout = 2;
-
-
-            PictureBox p1 = new PictureBox();
-            p1.Size = new System.Drawing.Size(30, 30);
-            p1.BackColor = Color.Purple;
-            Player pl1 = new Player("Player 1", p1);
-
-            //GameField[0].StepOver(pl1,true);
-            //GameField[0].StepOn(pl1);
+            Spielerreinenfolge.SortPlayer();
+            NoMorePlayer = true;
         }
 
         public static void Round(int Würfel1, int Würfel2)
@@ -114,12 +89,15 @@ namespace Kapitalismusly
                     GameField[temp].StepOver(PlayeronZug);
                     temp++;
                 }
-                GameField[temp].StepOn(PlayeronZug);
+                if (GameField[temp].GetType() == typeof(BasicServices))
+                    GameField[temp].StepOn(PlayeronZug, Würfel1+ Würfel2);
+                else
+                    GameField[temp].StepOn(PlayeronZug);
 
                 if (Würfel1 == Würfel2)
                 {
                     MessageBox.Show("Du kannst nochmal Würfeln.");
-                    // Ui aktivate würfel
+                    Ui.ActivateButtonRoll();
                     return;
                 }
             }
@@ -128,7 +106,7 @@ namespace Kapitalismusly
                 if (Guantanamo.Knastausbruch(PlayeronZug, (Würfel1, Würfel2)))
                 {
                     MessageBox.Show("Du kannst nochmal Würfeln.");
-                    // Ui aktivate würfel
+                    Ui.ActivateButtonRoll();
                     return;
                 }
                 else RoundEnd(); return;

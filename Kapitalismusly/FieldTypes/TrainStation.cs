@@ -10,7 +10,7 @@ namespace Kapitalismusly
     internal class TrainStation : Street
     {
 
-        public TrainStation(string name, int preis, Panel panel, bool richtung, List<Street> list) : base(name, preis, panel, richtung, list) { }
+        public TrainStation(string name, Panel panel, bool richtung, List<Street> list) : base(name, 200, panel, richtung, list) { }
 
         public new void StepOn(Player player)
         {

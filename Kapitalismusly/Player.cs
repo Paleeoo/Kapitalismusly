@@ -12,7 +12,7 @@ namespace Kapitalismusly
     {
         public readonly string Name;
         public readonly Bitmap Figur;
-        public List<Street> _streets = new List<Street>();
+        private List<Street> _streets = new List<Street>();
         public PictureBox picturebox;
         private int _money;
         public Field OnField;
@@ -22,6 +22,18 @@ namespace Kapitalismusly
             get { return _money; }
             set { return; }
         }
+
+        public List<Street> Streets
+        {
+            get
+            {
+                List<Street> temp = new List<Street>();
+                _streets.ForEach(x => temp.Add(x));
+                return temp;
+            }
+            set { return; }
+        }
+
 
         public Player(string name, PictureBox p, Bitmap fiegur)
         {
@@ -47,7 +59,7 @@ namespace Kapitalismusly
             }
             else   
             {
-                if (i > Money + Eigentumswerte())
+                if (i >= Money + Eigentumswerte())
                 {
                     SellAllStreets();
                     player.MoneyTransfer(Money);
@@ -56,7 +68,10 @@ namespace Kapitalismusly
                 }
                 else
                 {
-                    //verkauf um differenz zu decken
+                    player.MoneyTransfer(i);
+                    _money -= i;
+                    StraßenVerkauf.SartVerkauf(_streets, Money);
+
                 }
             }
 
@@ -81,7 +96,7 @@ namespace Kapitalismusly
             }
             else
             {
-                //Verkaufhinzufügen
+                
             }
 
 
@@ -101,7 +116,7 @@ namespace Kapitalismusly
         {
             foreach (var item in _streets)
             {
-                _money += item.Wert / 2;
+                _money += item.Wert;
                 item.BackToBank(); // hinzufügen
             }
         }

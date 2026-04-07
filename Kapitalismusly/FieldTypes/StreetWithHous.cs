@@ -9,7 +9,7 @@ namespace Kapitalismusly
 {
     internal class StreetWithHous : Street
     {
-        private Panel _houseplace = new Panel();
+        private Label _houseplace;
 
         private int _housecount;
         readonly public int HousPrice;
@@ -20,13 +20,13 @@ namespace Kapitalismusly
         public readonly int Miete4Haus;
         public readonly int MieteHotell;
 
-        public int Houscount
+        public new int Houscount
         {
             get { return _housecount; }
             set { return; }
         }
 
-        public StreetWithHous(string name, int preis, List<Street> list, int housprice, int grundmiete, int miete1haus, int miete2haus, int miete3haus, int miete4haus, int mietehotell, Panel place, Panel housplace, bool richtung) : base(name, preis, place, richtung, list)
+        public StreetWithHous(string name, int preis, List<Street> list, int housprice, int grundmiete, int miete1haus, int miete2haus, int miete3haus, int miete4haus, int mietehotell, Panel place, Label housplace, bool richtung) : base(name, preis, place, richtung, list)
         {
             _housecount = 0;
             HousPrice = housprice;
@@ -36,7 +36,9 @@ namespace Kapitalismusly
             Miete3Haus = miete3haus;
             Miete4Haus = miete4haus;
             MieteHotell = mietehotell;
+            housplace.Text = "";
             _houseplace = housplace;
+            
         }
 
 
@@ -47,33 +49,67 @@ namespace Kapitalismusly
 
             else
             {
-                if (player == _owner) return;
+                if (player == _owner)
+                {
+                   
+                }
                 else
                 {
                     if (_housecount == 0)
                     {
-                        foreach (var item in streetfamaly)
-                        {
-                            if (item.Owner != _owner) { player.MoneyTransfer(Owner, Grundmiete); return; }
-                        }
-                        player.MoneyTransfer(Owner, Grundmiete * 2);
+                        if (StreetFammelyQuery())
+                            player.MoneyTransfer(Owner, Grundmiete * 2);
+                        else
+                            player.MoneyTransfer(Owner, Grundmiete);
                     }
-                    else if (_housecount == 1) player.MoneyTransfer(_owner, Miete1Haus);
-                    else if (_housecount == 2) player.MoneyTransfer(_owner, Miete2Haus);
-                    else if (_housecount == 3) player.MoneyTransfer(_owner, Miete3Haus);
-                    else if (_housecount == 4) player.MoneyTransfer(_owner, Miete4Haus);
-                    else player.MoneyTransfer(Owner, Miete4Haus);
+                    else
+                    {
+                        switch (Houscount)
+                        {
+                            case 1: player.MoneyTransfer(_owner, Miete1Haus);
+                                return;
+
+                            case 2: player.MoneyTransfer(_owner, Miete2Haus);
+                                return;
+
+                            case 3: player.MoneyTransfer(_owner, Miete3Haus);
+                                return;
+
+                            case 4: player.MoneyTransfer(_owner, Miete4Haus);
+                                return;
+
+                            case 5: player.MoneyTransfer(_owner, MieteHotell);
+                                return;
+                        }
+
+                        MessageBox.Show("fehler");
+                    }
+                    
+
+
+
+
+
                 }
             }
         }
 
-        public void BuyHous()
+        public new void BuyHous()
         {
+            if (Houscount == 5)
+            {
+                MessageBox.Show("Du hast schon ein Hottel");
+                return;
+            }
+
             if (_owner.Money >= HousPrice)
             {
                 _housecount++;
-                PlaceHous();
+                _houseplace.Text = Houscount.ToString();
+                Owner.MoneyTransfer(-HousPrice);
             }
+            else
+                MessageBox.Show("Kannst du dir nicht leisten");
         
         }
 

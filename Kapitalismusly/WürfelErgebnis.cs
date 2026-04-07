@@ -51,9 +51,30 @@ namespace Kapitalismusly
             
         }
 
-        public static int NewErgebnis(Bitmap w1, Bitmap w2)
+        private static Bitmap GibWürfelZahl(int i)
         {
-            
+            switch (i)
+            {
+                case 1: return new Bitmap(Image.FromFile("würfel1.png"), 100, 100);
+
+                case 2: return new Bitmap(Image.FromFile("würfel2.png"), 100, 100);
+
+                case 3: return new Bitmap(Image.FromFile("würfel3.png"), 100, 100);
+
+                case 4: return new Bitmap(Image.FromFile("würfel4.png"), 100, 100);
+
+                case 5: return new Bitmap(Image.FromFile("würfel5.png"), 100, 100);
+
+                case 6: return new Bitmap(Image.FromFile("würfel6.png"), 100, 100);
+
+                default: MessageBox.Show("Ungültigen Wert Übergeben"); return null;
+            }
+        }
+
+        public static int NewErgebnis(int würfel1, int würfel2)
+        {
+            Bitmap w1 = GibWürfelZahl(würfel1);
+            Bitmap w2 = GibWürfelZahl(würfel2);
 
             WürfelErgebnis w = new WürfelErgebnis(w1, w2);
             w.ShowDialog();
