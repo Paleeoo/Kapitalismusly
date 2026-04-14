@@ -17,7 +17,6 @@ namespace Kapitalismusly
         private List<MultiPanel> panellist = new List<MultiPanel>();
         private decimal time = 10.00m;
         private string _name;
-        private string _atikel;
 
 
 

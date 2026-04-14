@@ -40,7 +40,7 @@ namespace Kapitalismusly
 
 
             Application.Run(Ui);
-            Ui.Show();
+            
         }
 
         private static void BeforStart()

@@ -150,20 +150,6 @@ namespace Kapitalismusly
 
             GameLogic.Round(würfel1, würfel2);
         }
-
-        private void panel45_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

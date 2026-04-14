@@ -37,8 +37,6 @@ namespace Kapitalismusly
                     return;
             }
 
-
-
         }
 
         private void GoToJail()
@@ -54,9 +52,8 @@ namespace Kapitalismusly
 
         private void BauAmtsürtum(Player player)
         {
-            bool test = false;
             List<Street> temp = new List<Street>();
-            foreach (var item in player._streets)
+            foreach (var item in player.Streets)
             {
                 if (item.GetType() == typeof(StreetWithHous)) 
                     temp.Add(item);
@@ -69,7 +66,8 @@ namespace Kapitalismusly
                 MessageBox.Show("Es ist ein Fehler aufgetreten.\n Die Zufahrt der " + tempstreet.Name + "gehört dir nicht.\n Kaufe sie für 500€. ", "BauAmtsürtum");
                 player.MoneyTransfer(-500);
             }
-            else StepOn(player);
+            else 
+                StepOn(player);
         }
     }
 }

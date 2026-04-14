@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -98,8 +99,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.labelMoney = new System.Windows.Forms.Label();
             this.labelPlayer = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -449,12 +452,13 @@
             // buttonNext
             // 
             this.buttonNext.BackColor = System.Drawing.Color.Red;
-            this.buttonNext.Location = new System.Drawing.Point(844, 668);
+            this.buttonNext.Location = new System.Drawing.Point(844, 723);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(127, 49);
             this.buttonNext.TabIndex = 40;
             this.buttonNext.Text = "Weiter";
             this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Visible = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // button2
@@ -463,7 +467,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 49);
             this.button2.TabIndex = 41;
-            this.button2.Text = "button2";
+            this.button2.Text = "Meine straßen\r\n";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonRoll
@@ -476,6 +480,7 @@
             this.buttonRoll.TabIndex = 42;
             this.buttonRoll.Text = "Würfeln";
             this.buttonRoll.UseVisualStyleBackColor = false;
+            this.buttonRoll.Visible = false;
             this.buttonRoll.Click += new System.EventHandler(this.buttonRoll_Click);
             // 
             // label1
@@ -567,7 +572,6 @@
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 52;
             this.label10.Text = "label10";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -679,10 +683,10 @@
             // 
             // labelMoney
             // 
-            this.labelMoney.AutoSize = true;
-            this.labelMoney.Location = new System.Drawing.Point(1475, 797);
+            this.labelMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMoney.Location = new System.Drawing.Point(1546, 597);
             this.labelMoney.Name = "labelMoney";
-            this.labelMoney.Size = new System.Drawing.Size(41, 13);
+            this.labelMoney.Size = new System.Drawing.Size(177, 34);
             this.labelMoney.TabIndex = 65;
             this.labelMoney.Text = "label23";
             this.labelMoney.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -697,14 +701,25 @@
             this.labelPlayer.TabIndex = 66;
             this.labelPlayer.Text = "Tim Ist am Zug";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1510, 516);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 407);
+            this.pictureBox1.TabIndex = 67;
+            this.pictureBox1.TabStop = false;
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Kapitalismusly.Properties.Resources.wood_extra;
             this.ClientSize = new System.Drawing.Size(1834, 961);
-            this.Controls.Add(this.labelPlayer);
             this.Controls.Add(this.labelMoney);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.labelPlayer);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -776,6 +791,7 @@
             this.Load += new System.EventHandler(this.UI_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -853,6 +869,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label labelMoney;
         private System.Windows.Forms.Label labelPlayer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
