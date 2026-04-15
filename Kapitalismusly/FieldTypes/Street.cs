@@ -42,6 +42,7 @@ namespace Kapitalismusly
             Price = preis;
             wert = preis / 2;
             _place = panel;
+            _direction = richtung;
             streetfamaly = list;
         }
 

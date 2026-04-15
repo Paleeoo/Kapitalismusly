@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,6 +46,18 @@ namespace Kapitalismusly
 
         private static void BeforStart()
         {
+            PictureBox temp2 = new PictureBox();
+            temp2.Size = new Size(30, 30);
+            temp2.BackColor = Color.Purple;
+
+            PictureBox temp1 = new PictureBox();
+            temp1.Size = new Size(30, 30);
+            temp1.BackColor = Color.Yellow;
+
+            Playerlist.Add(new Player("p1", temp2));
+            Playerlist.Add(new Player("p2", temp1));
+            PlayeronZug = Playerlist[0];
+            return;
             CreatePlayer.AddPlayer();
             MessageBox.Show("Spieler erstellt.\nNächster Spieler ist dran.");
             CreatePlayer.AddPlayer();
@@ -77,8 +90,12 @@ namespace Kapitalismusly
                 if (Würfel1 == Würfel2)
                 {
                     _paschcount++;
-                    MessageBox.Show("Du hast zu oft ein Pasch gewürfelt.\nDu schummelst...\nGeh ins Gefängnis!");
-                    if (_paschcount == 3) GoToJail();
+                    if (_paschcount == 3)
+                    {
+                        MessageBox.Show("Du hast zu oft ein Pasch gewürfelt.\nDu schummelst...\nGeh ins Gefängnis!");
+                        GoToJail();
+                    }
+
                 }
 
                 int temp = GameField.IndexOf(PlayeronZug.OnField) + 1;

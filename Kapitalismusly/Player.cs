@@ -35,7 +35,7 @@ namespace Kapitalismusly
         }
 
 
-        public Player(string name, PictureBox p, Bitmap fiegur)
+        public Player(string name, PictureBox p)
         {
             Name = name;
             picturebox = p;
@@ -44,11 +44,7 @@ namespace Kapitalismusly
 
         
 
-        public Player(string name, PictureBox p)
-        {
-            Name = name;
-            picturebox = p;
-        }
+        
 
         public void MoneyTransfer(Player player, int i)
         {

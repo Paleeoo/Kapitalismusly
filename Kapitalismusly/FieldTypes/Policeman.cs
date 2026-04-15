@@ -17,7 +17,7 @@ namespace Kapitalismusly
             _place = panel;
         }
 
-        public new void StepOn(Player player)
+        public override void StepOn(Player player)
         {
             MessageBox.Show("Tja. Wer die Finger hält nicht still, der wohl länger sitzen will!");
             GameLogic.GoToJail();

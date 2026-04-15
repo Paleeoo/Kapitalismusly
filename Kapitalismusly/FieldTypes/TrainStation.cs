@@ -12,7 +12,7 @@ namespace Kapitalismusly
 
         public TrainStation(string name, Panel panel, bool richtung, List<Street> list) : base(name, 200, panel, richtung, list) { }
 
-        public new void StepOn(Player player)
+        public override void StepOn(Player player)
         {
             Positioning(player);
             if (Owner == null) Kaufabfrage(player);

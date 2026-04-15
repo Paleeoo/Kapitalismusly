@@ -11,13 +11,14 @@ namespace Kapitalismusly
     {
         readonly private int _minusMonney;
 
-        public BadField(Panel panel, int wert)
+        public BadField(Panel panel, int wert, bool richtung)
         {
             _place = panel;
             _minusMonney = wert;
+            _direction = richtung;
         }
 
-        public new void StepOn(Player player)
+        public override void StepOn(Player player)
         {
             Positioning(player);
 

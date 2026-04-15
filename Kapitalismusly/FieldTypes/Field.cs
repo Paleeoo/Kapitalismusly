@@ -21,21 +21,21 @@ namespace Kapitalismusly
             set { return; }
         }
 
-        public void StepOn(Player player)
+        public virtual void StepOn(Player player)
         {
             //unbeschrieben wiel in jerder klasse neu definiert
         }
-        public void StepOn(Player player, int i)
+        public virtual void StepOn(Player player, int i)
         {
             //unbeschrieben wiel in klasse neu definiert
         }
 
-        public void StepOver(Player player)
+        public virtual void StepOver(Player player)
         {
             GoOver(player);
         }
 
-        public async void GoOver(Player player)
+        public virtual async void GoOver(Player player)
         {
             _place.Controls.Add(player.picturebox);
             int time = 300;
@@ -97,7 +97,7 @@ namespace Kapitalismusly
             _place.Controls.Remove(player.picturebox);
         }
 
-        public void GoBack(Player player)
+        public virtual void GoBack(Player player)
         {
             _place.Controls.Add(player.picturebox);
 
@@ -139,6 +139,8 @@ namespace Kapitalismusly
         {
             bool OnePlayerOnField = true;
             if (_playersonfield.Count >1) OnePlayerOnField = false;
+            int w = _place.Width;
+            int h = _place.Height;
 
             if (_place.Width > _place.Height)  //Fields left and right
             {
@@ -146,7 +148,7 @@ namespace Kapitalismusly
                 if (_direction) //Fields right site
                 {
                     if (OnePlayerOnField)
-                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 -10, 20);
+                        _playersonfield[0].picturebox.Location = new Point(_place.Width - 30 - 10, 20);
                     else
                     {
                         _playersonfield[0].picturebox.Location = new Point(_place.Width - 40, 4);
@@ -191,7 +193,7 @@ namespace Kapitalismusly
         }
 
        
-        public void LeaveField(Player player)
+        public virtual void LeaveField(Player player)
         {
 
             _playersonfield.Remove(player);

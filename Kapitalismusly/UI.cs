@@ -28,7 +28,7 @@ namespace Kapitalismusly
             GameLogic.GameField.Add(new Gemeinschaftsfeld(panel3));
             temp1.Add(new StreetWithHous("straße 1.2", 60, temp1, 50, 4, 20, 60, 180, 320, 450, panel4, label2, true));
             GameLogic.GameField.Add(temp1[1]);
-            GameLogic.GameField.Add(new BadField(panel5, 200));
+            GameLogic.GameField.Add(new BadField(panel5, 200, true));
             List<Street> bahnhöfe = new List<Street>();
             bahnhöfe.Add(new TrainStation("Bahnhof1", panel6, true, bahnhöfe));
             GameLogic.GameField.Add(bahnhöfe[0]);
@@ -43,7 +43,8 @@ namespace Kapitalismusly
             GameLogic.GameField.Add(temp2[1]);
             temp2.Add(new StreetWithHous("straße2.3", 120, temp2, 50, 8, 40, 100, 300, 450, 600, panel10, label5, true));
             GameLogic.GameField.Add(temp2[2]);
-            GameLogic.GameField.Add(new Jail(panel11, panel111));
+            GameLogic.Guantanamo = new Jail(panel11, panel111);
+            GameLogic.GameField.Add(GameLogic.Guantanamo);
             List<Street> temp3 = new List<Street>();
             temp3.Add(new StreetWithHous("straße3.1", 140, temp3, 100, 10, 50, 150, 450, 625, 750, panel12, label6, true));
             GameLogic.GameField.Add(temp3[0]);
@@ -96,7 +97,7 @@ namespace Kapitalismusly
             List<Street> temp8 = new List<Street>();
             temp8.Add(new StreetWithHous("straße8.1", 350, temp8, 200, 35, 175, 500, 1100, 1300, 1500, panel38, label21, false));
             GameLogic.GameField.Add(temp8[0]);
-            GameLogic.GameField.Add(new BadField(panel39, 100));
+            GameLogic.GameField.Add(new BadField(panel39, 100, false));
             temp8.Add(new StreetWithHous("straße8.2", 400, temp8, 200, 50, 200, 600, 1400, 1700, 2000, panel38, label21, false));
             GameLogic.GameField.Add(temp8[1]);
 
@@ -104,6 +105,9 @@ namespace Kapitalismusly
             UpdateInterface();
             ActivateButtonRoll();
 
+            //GameLogic.GameField[0].StepOn(GameLogic.Playerlist[0]);
+            //GameLogic.GameField[1].StepOn(GameLogic.Playerlist[0]);
+            //GameLogic.Playerlist.ForEach(x => GameLogic.GameField[0].StepOn(x));
 
         }
 
@@ -150,6 +154,10 @@ namespace Kapitalismusly
 
             GameLogic.Round(würfel1, würfel2);
         }
-        
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

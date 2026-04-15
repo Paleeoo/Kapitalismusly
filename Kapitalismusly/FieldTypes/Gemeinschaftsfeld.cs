@@ -14,7 +14,7 @@ namespace Kapitalismusly
             _place = panel;
         }
 
-        public new void StepOn(Player player)
+        public override void StepOn(Player player)
         {
             Positioning(player);
             Strafen(player);

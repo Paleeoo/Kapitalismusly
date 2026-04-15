@@ -104,7 +104,7 @@ namespace Kapitalismusly
         }
 
 
-        public new void StepOn(Player player)
+        public override void StepOn(Player player)
         {
             player.OnField = this;
             _playersonfield.Add(player);
